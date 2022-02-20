@@ -94,12 +94,15 @@ const Register: NextPage = () => {
         options={autoComplete}
         freeSolo
         getOptionLabel={(data) => data.title || ""}
-        renderOption={(props, option) => (
-          <Li key={option.id} {...props}>
-            <div>{option.title}</div>
-            <div className="address">{option.jibunAddress}</div>
-          </Li>
-        )}
+        renderOption={(props, option) => {
+          const { key, ...restProps } = props as any;
+          return (
+            <Li key={option.id} {...restProps}>
+              <div>{option.title}</div>
+              <div className="address">{option.jibunAddress}</div>
+            </Li>
+          );
+        }}
         onChange={(_event, data) =>
           data?.id &&
           setStoreData({

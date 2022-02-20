@@ -22,6 +22,10 @@ const NaverMap: FC<NaverMapProps> = ({ style, location, storesData }) => {
     mapRef.current?.setCenter(
       new naver.maps.LatLng(location.lat, location.lon)
     );
+    new naver.maps.Marker({
+      map: mapRef.current,
+      position: new naver.maps.LatLng(location.lat, location.lon),
+    });
   }, [location]);
   useEffect(() => {
     storesData.forEach((item) => {

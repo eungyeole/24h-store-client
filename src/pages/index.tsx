@@ -1,16 +1,10 @@
-import { Box, Fab, IconButton, TextField, Typography } from "@mui/material";
+import { Box, Fab, IconButton, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import GpsNotFixedIcon from "@mui/icons-material/GpsNotFixed";
-import type {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  NextPage,
-} from "next";
-import FilterListIcon from "@mui/icons-material/FilterList";
+import type { NextPage } from "next";
 import NaverMap from "../components/naverMpas/NaverMap";
 import styled from "@emotion/styled";
-import { RefObject, useEffect, useRef, useState } from "react";
-import useSWR from "swr";
+import { useEffect, useRef, useState } from "react";
 import { getStoreAPI, StoreType } from "../utils/apis";
 import { useRouter } from "next/router";
 
@@ -30,6 +24,7 @@ const Home: NextPage = () => {
         lat: coords.latitude,
         lon: coords.longitude,
       });
+
       callback?.(position);
     });
   };
@@ -65,7 +60,7 @@ const Home: NextPage = () => {
             }}
           />
           <Typography color="primary" fontWeight="bold">
-            강남구
+            24h 지도
           </Typography>
           <Box
             sx={{
