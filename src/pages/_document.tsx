@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-title-in-document-head */
 /* eslint-disable @next/next/next-script-for-ga */
 /* eslint-disable @next/next/no-sync-scripts */
 import React from "react";
@@ -7,6 +8,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="kr">
         <Head>
+          <title>24h-store</title>
           <meta name="google" content="notranslate" />
           <script
             type="text/javascript"

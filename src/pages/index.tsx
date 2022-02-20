@@ -10,12 +10,11 @@ import { useRouter } from "next/router";
 
 const Home: NextPage = () => {
   const selectRef = useRef<HTMLSelectElement>(null);
-  const [location, setLocation] = useState<{ lat: number; lon: number }>({
-    lat: 37.511337,
-    lon: 127.012084,
+  const [location, setLocation] = useState<{ lat?: number; lon?: number }>({
+    lat: undefined,
+    lon: undefined,
   });
   const [storesData, setStoresData] = useState<StoreType[]>([]);
-  const { lat, lon } = location;
   const router = useRouter();
   const getLocation = (callback?: (coords: GeolocationPosition) => void) => {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -38,6 +37,7 @@ const Home: NextPage = () => {
   return (
     <Wrapper>
       <NaverMap
+        setLocation={setLocation}
         location={location}
         style={{ width: "100%", height: "100%" }}
         storesData={storesData}
